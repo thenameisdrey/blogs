@@ -1,0 +1,51 @@
+{% extends 'courses/base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+
+{% block head %}
+    {{course}}
+{% endblock%}
+
+{%block content%}
+
+<div class="container">
+    <section class="col-md-12 fundamentalmain">
+
+        <div class="workshop">
+                <h6>Lab {{topic.id}}: {{topic.topic}}</h6><br>
+
+            </div>
+        {%for data in labtask%}
+
+            <p>
+                <strong>{{ data.task_number }}.) </strong>
+                {{ data.comment }} <br><br>
+            </p>
+            <strong>Note: </strong> {{ data.note }} <br><br>
+            <strong>Task: </strong> {{ data.task }} <br><br>
+            {% if data.hint %}
+            <strong>Hint: </strong> {{ data.hint }} <br><br><br><br>
+            {% endif %}
+        {%endfor%}
+
+
+        <form method="post" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <label>Username: </label>
+            <input type="text" name="username">
+
+            {{ form.as_p }}
+
+            <button type="submit"> Upload </button>
+        </form>
+    </section>
+</div>
+{% endblock %}
+
+
+

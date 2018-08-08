@@ -1,0 +1,23 @@
+{% extends 'courses/base.html' %}
+
+{% block title %}
+	Topics Page
+{% endblock %}
+
+
+{% block head %}
+    {{course}}<span> > {{object}}</span>
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <section class="col-md-12 fundamentalmain">
+        <p>{{object.topic}}</p>
+        <p>{{object.video}}</p>
+        <a class="page-link" href="{% url 'courses:lab_detail' object.id %}" style="text-decoration: none;">
+            Lab
+        </a>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'courses/base.html' %}
+
+{% block title %}
+	Topics Page
+{% endblock %}
+
+
+{% block head %}
+    {{course}}
+{% endblock %}
+
+
+{% block content %}
+
+<section class="col-md-12 fundamentalmain">
+    <ul>
+        {% for each_course_topic in all_course_topics %}
+        <li>
+            <a class="page-link" href="{% url 'courses:topic_details' each_course_topic.id %}" style="text-decoration: none;">
+                <span>{{ each_course_topic.topic  }}</span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+
+</section>
+
+{% endblock %}
